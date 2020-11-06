@@ -1,5 +1,6 @@
 package wrappers;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +16,8 @@ public class eventsClass {
     public static Properties prop;
 
     public static void invokeApp() throws InterruptedException {
-            System.setProperty("webdriver.chrome.driver", "./src/main/resources/lib/chromedriver.exe");
+
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
